@@ -2,6 +2,7 @@
 @import url('./header.css');
 @import url('./catalog.css');
 @import url('./modal.css');
+@import url('./filters.css');
 
 @font-face {
   font-family: 'Inter Regular', sans-serif;
@@ -78,7 +79,9 @@ button:focus-visible {
 }
 
 img,
-a {
+a,
+ul,
+p {
   margin: 0;
   padding: 0;
 }

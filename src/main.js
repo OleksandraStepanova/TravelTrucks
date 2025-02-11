@@ -1,33 +1,80 @@
-import { routes, isModalRoute, getCamperIdFromPath } from "./js/routes.js";
-import { openModal } from "./js/modal.js";
+import { getCampers } from './js/api.js';
 
-const app = document.getElementById("app");
+const resultRef = document.querySelector('.result');
+const loader = document.querySelector('.loader');
+const loadMore = document.querySelector('.load-more');
 
-async function navigate(event) {
-    event.preventDefault();
-    const path = event.target.getAttribute("href");
+document.querySelectorAll('.container-filters').forEach(item => {
+  item.addEventListener('click', function () {
+    item.classList.toggle('active-filter');
+  });
+});
 
-    if (isModalRoute(path)) {
-        openModal(getCamperIdFromPath(path));
-    } else {
-        history.pushState({}, "", path);
-        await render();
-    }
+let page = 1;
+const pageSize = 4;
+let allCampers = [];
+
+function camperTemplate(camper) {
+  return `<li class="campers-item">
+                <img class="img-campers" src=${camper.gallery[0].original} alt=${camper.name} />
+                    <div style={width:'524px', height:'320px'}>
+                        <div class="title-campers">
+                            <h2>${camper.name}</h2>
+                            <div class="price-campers">
+                                <p>&euro;${camper.price},00</p>                                                      
+                            </div>
+                        </div>
+                        <div class="wrapper-campers">
+                            <div class="reviews-campers">
+                                
+                                <p>${camper.rating}</p>
+                                <p>(${camper.reviews.length} Reviews)</p>
+                            </div>
+                            <div>
+                                <p>${camper.location}</p>
+                            </div>
+                        </div>                    
+                        <p class="description-campers" >${camper.description}</p>                    
+                        <a class="campers-link">Show more</a>
+                    </div>
+        </li>`;
 }
 
-async function render() {
-    const path = window.location.pathname;
-
-    if (isModalRoute(path)) {
-        openModal(getCamperIdFromPath(path));
-        return;
-    }
-
-    app.innerHTML = `<p>Loading...</p>`;
-    app.innerHTML = routes[path] ? await routes[path]() : `<h1>404 - Page not found</h1>`;
-
-    document.querySelectorAll("a[data-link]").forEach(link => link.addEventListener("click", navigate));
+function campersTemplate(arr) {
+  return arr.map(camperTemplate).join(' ');
 }
 
-window.addEventListener("popstate", render);
-document.addEventListener("DOMContentLoaded", render);
+async function createCatalog() {
+  try {
+    const data = await getCampers();
+    allCampers = data;
+    page = 1;
+    resultRef.innerHTML = campersTemplate(allCampers.slice(0, pageSize));
+    checkLoadMoreButton();
+  } catch (error) {
+    resultRef.innerHTML = '<p>Not found</p>';
+    loadMore.classList.add('no-active');
+  }
+}
+
+function loadMoreCampers() {
+  page++;
+  const startIndex = (page - 1) * pageSize;
+  const endIndex = page * pageSize;
+  resultRef.insertAdjacentHTML(
+    'beforeend',
+    campersTemplate(allCampers.slice(startIndex, endIndex))
+  );
+  checkLoadMoreButton();
+}
+
+function checkLoadMoreButton() {
+  if (page * pageSize >= allCampers.length) {
+    loadMore.style.display = 'none';
+  } else {
+    loadMore.style.display = 'block';
+  }
+}
+
+window.onload = createCatalog;
+loadMore.addEventListener('click', loadMoreCampers);

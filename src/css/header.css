@@ -1,18 +1,19 @@
 .header {
   border-bottom: 1px solid #f2f4f7;
-  padding: 24px 64px;
+  max-width: 100%;
+  background-color: #f7f7f7;
+}
+.container-header {
   max-width: 1440px;
+  padding: 24px 64px;
   height: 72px;
   color: #101828;
   display: flex;
   align-items: center;
   gap: 450px;
   justify-content: start;
+  margin: 0 auto;
 }
-
-.navigation {
-}
-
 .list-nav {
   display: flex;
   gap: 32px;
