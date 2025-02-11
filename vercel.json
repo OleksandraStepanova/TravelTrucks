@@ -1,10 +1,24 @@
 {
   "version": 2,
-
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "catalog.html",
+      "use": "@vercel/static"
+    }
+    
+  ],
   "routes": [
     {
-      "src": "/(.*).html",
-      "dest": "/src/$1.html"
+      "src": "/index.html",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/catalog.html",
+      "dest": "/catalog.html"
     }
   ]
 }
