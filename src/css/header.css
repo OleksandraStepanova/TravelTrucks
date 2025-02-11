@@ -1,0 +1,38 @@
+.header {
+  border-bottom: 1px solid #f2f4f7;
+  padding: 24px 64px;
+  max-width: 1440px;
+  height: 72px;
+  color: #101828;
+  display: flex;
+  align-items: center;
+  gap: 450px;
+  justify-content: start;
+}
+
+.navigation {
+}
+
+.list-nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.item-nav {
+  font-family: 'Inter Regular', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+  color: #101828;
+}
+
+.item-nav:hover,
+.item-nav:focus,
+.item-nav:active {
+  color: #d84343;
+}
+.active {
+  color: #d84343;
+}

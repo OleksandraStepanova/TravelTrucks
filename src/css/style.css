@@ -1,0 +1,84 @@
+@import url('./home.css');
+@import url('./header.css');
+@import url('./catalog.css');
+@import url('./modal.css');
+
+@font-face {
+  font-family: 'Inter Regular', sans-serif;
+  src: url('../src/fonts/Inter_18pt-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter Medium', sans-serif;
+  src: url('../src/fonts/Inter_18pt-Medium.ttf');
+}
+@font-face {
+  font-family: 'Inter SemiBold', sans-serif;
+  src: url('../src/fonts/Inter_18pt-SemiBold.ttf');
+}
+:root {
+  font-family: 'Inter Regular', 'Inter Medium', 'Inter SemiBold', sans-serif;
+  line-height: 1.33;
+  font-weight: 400;
+  color: #101828;
+  background-color: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  font-family: 'Inter Medium';
+  font-weight: 500;
+  color: white;
+  text-decoration: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+}
+a:hover {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Inter SemiBold', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 0.67;
+  color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+img,
+a {
+  margin: 0;
+  padding: 0;
+}
