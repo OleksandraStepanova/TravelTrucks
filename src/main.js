@@ -3,54 +3,50 @@ import { getCampers } from './js/api.js';
 const resultRef = document.querySelector('.result');
 const loader = document.querySelector('.loader');
 const loadMore = document.querySelector('.load-more');
-
-document.querySelectorAll('.container-filters').forEach(item => {
-  item.addEventListener('click', function () {
-    item.classList.toggle('active-filter');
-  });
-});
+const filtersForm = document.querySelector('#filtersForm');
 
 let page = 1;
 const pageSize = 4;
 let allCampers = [];
+let filteredCampers = [];
 
 function camperTemplate(camper) {
   return `<li class="campers-item">
-                <img class="img-campers" src=${camper.gallery[0].original} alt=${camper.name} />
-                    <div style={width:'524px', height:'320px'}>
-                        <div class="title-campers">
-                            <h2>${camper.name}</h2>
-                            <div class="price-campers">
-                                <p>&euro;${camper.price},00</p>                                                      
-                            </div>
-                        </div>
-                        <div class="wrapper-campers">
-                            <div class="reviews-campers">
-                                
-                                <p>${camper.rating}</p>
-                                <p>(${camper.reviews.length} Reviews)</p>
-                            </div>
-                            <div>
-                                <p>${camper.location}</p>
-                            </div>
-                        </div>                    
-                        <p class="description-campers" >${camper.description}</p>                    
-                        <a class="campers-link">Show more</a>
+            <img class="img-campers" src="${camper.gallery[0].original}" alt="${camper.name}" />
+            <div>
+                <div class="title-campers">
+                    <h2>${camper.name}</h2>
+                    <div class="price-campers">
+                        <p>&euro;${camper.price},00</p>                                                      
                     </div>
+                </div>
+                <div class="wrapper-campers">
+                    <div class="reviews-campers">
+                        <p>${camper.rating}</p>
+                        <p>(${camper.reviews.length} Reviews)</p>
+                    </div>
+                    <div>
+                        <p>${camper.location}</p>
+                    </div>
+                </div>                    
+                <p class="description-campers">${camper.description}</p>                    
+                <a class="campers-link">Show more</a>
+            </div>
         </li>`;
 }
 
-function campersTemplate(arr) {
-  return arr.map(camperTemplate).join(' ');
+function renderCampers(arr) {
+  resultRef.innerHTML = arr.slice(0, pageSize).map(camperTemplate).join('');
+  page = 1;
+  checkLoadMoreButton();
 }
 
 async function createCatalog() {
   try {
     const data = await getCampers();
     allCampers = data;
-    page = 1;
-    resultRef.innerHTML = campersTemplate(allCampers.slice(0, pageSize));
-    checkLoadMoreButton();
+    filteredCampers = allCampers;
+    renderCampers(filteredCampers);
   } catch (error) {
     resultRef.innerHTML = '<p>Not found</p>';
     loadMore.classList.add('no-active');
@@ -63,18 +59,49 @@ function loadMoreCampers() {
   const endIndex = page * pageSize;
   resultRef.insertAdjacentHTML(
     'beforeend',
-    campersTemplate(allCampers.slice(startIndex, endIndex))
+    filteredCampers.slice(startIndex, endIndex).map(camperTemplate).join('')
   );
   checkLoadMoreButton();
 }
 
+function applyFilters() {
+  const location =
+    document.querySelector('#location')?.value.toLowerCase() || '';
+
+  const activeFilters = [
+    ...document.querySelectorAll('.container-filters.active-filter'),
+  ].map(filter => filter.id);
+
+  const vehicleType =
+    document.querySelector('input[name="vehicleType"]:checked')?.value || '';
+
+  filteredCampers = allCampers.filter(camper => {
+    const matchesLocation = camper.location.toLowerCase().includes(location);
+    const matchesEquipment = activeFilters.every(
+      key => camper[key] === true || 'automatic'
+    );
+    const matchesVehicleType = vehicleType ? camper.form === vehicleType : true;
+
+    return matchesLocation && matchesEquipment && matchesVehicleType;
+  });
+
+  renderCampers(filteredCampers);
+}
+
 function checkLoadMoreButton() {
-  if (page * pageSize >= allCampers.length) {
-    loadMore.style.display = 'none';
-  } else {
-    loadMore.style.display = 'block';
-  }
+  loadMore.style.display =
+    page * pageSize >= filteredCampers.length ? 'none' : 'block';
 }
 
 window.onload = createCatalog;
 loadMore.addEventListener('click', loadMoreCampers);
+filtersForm.addEventListener('submit', function (event) {
+  event.preventDefault();
+  applyFilters();
+});
+
+document.querySelectorAll('.container-filters').forEach(item => {
+  item.addEventListener('click', function () {
+    item.classList.toggle('active-filter');
+  });
+});
