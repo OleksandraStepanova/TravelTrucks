@@ -1,7 +1,8 @@
 .section-catalog {
   padding: 48px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: start;
 }
 .container-list {
   display: flex;

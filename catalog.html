@@ -24,7 +24,7 @@
         </div>
     </header>
     <main id="catalog" class="section-catalog">
-        <div class="wrapper-filters">
+        <section class="wrapper-filters">
             <form id="filtersForm" class="form-filters">
                 <label for="location" class="text-filters">Location</label>
                 <input id="location" name="location" class="location-filters" type="text" placeholder="Kyiv">
@@ -71,19 +71,18 @@
                     <label class="container-filters-radio" for="alcove">                                                
                         <img src="./src/img/alcove.svg" alt="alcove">
                         <p>Alcove</p>
-                    </label>
-                    
+                    </label>                    
                 </div>
             
                 <button type="submit" class="button-filters">Search</button>
             </form>
+        </section>
 
-        </div>
-        <div class="container-list">
+        <section class="container-list">
             <ul class="result"></ul>
             <span class="loader">Loading...</span>
             <button class="load-more">Load more</button>
-        </div>
+        </section>
     </main>
     <script type="module" src="./src/main.js"></script>
 </body>
