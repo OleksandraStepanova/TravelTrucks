@@ -8,7 +8,7 @@ export async function getCampers() {
   try {
     loader.style.display = 'block';
     const response = await axios.get(BASE_URL);
-    loader.style.display = 'none';
+    loader.style.display = 'none';        
     return response.data.items;
   } catch (error) {
     console.error('Error:', error);
