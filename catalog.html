@@ -24,7 +24,7 @@
         </div>
     </header>
     <main id="catalog" class="section-catalog">
-        <section class="wrapper-filters">
+        <section class="filters">
             <form id="filtersForm" class="form-filters">
                 <label for="location" class="text-filters">Location</label>
                 <input id="location" name="location" class="location-filters" type="text" placeholder="Kyiv">
@@ -78,10 +78,13 @@
             </form>
         </section>
 
-        <section class="container-list">
+        <section class="campers">
             <ul class="result"></ul>
             <span class="loader">Loading...</span>
             <button class="load-more">Load more</button>
+            <div class="modal">
+                <div class="modal-content"></div>
+            </div>
         </section>
     </main>
     <script type="module" src="./src/main.js"></script>

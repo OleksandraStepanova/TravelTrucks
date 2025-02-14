@@ -2,8 +2,8 @@
 @import url('./header.css');
 @import url('./catalog.css');
 @import url('./template.css');
-@import url('./modal.css');
 @import url('./filters.css');
+@import url('./modal.css');
 
 @font-face {
   font-family: 'Inter Regular', sans-serif;
@@ -82,7 +82,13 @@ button:focus-visible {
 img,
 a,
 ul,
-p {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
 }

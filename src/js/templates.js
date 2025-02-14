@@ -85,7 +85,7 @@ export function camperTemplate(camper) {
                            : ''
                        }
                   </ul>                    
-                  <a class="campers-link">Show more</a>
+                  <a class="campers-link" data-id="${camper.id}">Show more</a>
               </div>
           </li>`;
 }
