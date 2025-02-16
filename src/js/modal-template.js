@@ -46,7 +46,7 @@ export async function modalTemplate(camper) {
         }">Reviews</a>
       </nav>
       <div id="outlet">
-         
+          ${features}
       </div>
       <img class='close-modal' src="close.svg" alt="close" width='22px' />
     </section>
