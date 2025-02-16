@@ -18,7 +18,7 @@ export async function openModal(camperId) {
     modalContent.innerHTML = modalTemplate(camper);
     document.querySelector('.modal').classList.add('open');
 
-    sessionStorage.setItem('openModal', camperId);
+    // sessionStorage.setItem('openModal', camperId);
     // window.history.pushState({}, '', `/catalog.html/${camperId}`);
 
     addNavigationHandlers();
@@ -30,7 +30,7 @@ export async function openModal(camperId) {
 export function closeModal() {
   document.querySelector('.modal').classList.remove('open');
   // window.history.pushState({}, '', '/catalog.html');
-  sessionStorage.removeItem('openModal');
+  // sessionStorage.removeItem('openModal');
 }
 
 document.addEventListener('click', function (event) {
@@ -63,12 +63,12 @@ function renderPage(page, camperId) {
   }
 }
 
-function addNavigationHandlers() {
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (event) {
-      event.preventDefault();
-      const camperId = event.target.dataset.id;
-      renderPage(event.target.dataset.page, camperId);
-    });
-  });
-}
+// function addNavigationHandlers() {
+//   document.querySelectorAll('.nav-link').forEach(link => {
+//     link.addEventListener('click', function (event) {
+//       event.preventDefault();
+//       const camperId = event.target.dataset.id;
+//       renderPage(event.target.dataset.page, camperId);
+//     });
+//   });
+// }
