@@ -11,36 +11,36 @@ export function camperTemplate(camper) {
                           <button type="button" class="btn-like" data-id="${
                             camper.id
                           }">
-                              <img class='img-like' src="./src/img/heart.svg" alt="like" />
+                              <img class='img-like' src="./img/heart.svg" alt="like" />
                           </button>                                                      
                       </div>
                   </div>
                   <div class="wrapper-campers">
                       <div class="reviews-campers">
-                        <img src='./src/img/star.svg' alt="star" />
+                        <img src='./img/star.svg' alt="star" />
                         <p>${camper.rating}</p>
                         <p>(${camper.reviews.length} Reviews)</p>
                       </div>
                       <div class="reviews-campers">
-                        <img src='./src/img/map.svg' alt="location" />
+                        <img src='./img/map.svg' alt="location" />
                         <p>${camper.location}</p>
                       </div>
                   </div>                    
                   <p class="description-campers">${camper.description}</p>
                   <ul class="characteristics-list">
                       <li class="characteristics-item">
-                          <img src='./src/img/diagram.svg' alt="diagram" />
+                          <img src='./img/diagram.svg' alt="diagram" />
                           <p class='characteristics'>${camper.transmission}</p>
                       </li>
                       <li class='characteristics-item'>
-                          <img src='./src/img/fuel-pump.svg' alt="fuel" />
+                          <img src='./img/fuel-pump.svg' alt="fuel" />
                           <p class='characteristics'>${camper.engine}</p>
                       </li>                        
                       ${
                         camper.kitchen
                           ? `
                       <li class='characteristics-item'>
-                          <img src='./src/img/cup-hot.svg' alt="kitchen" />
+                          <img src='./img/cup-hot.svg' alt="kitchen" />
                           <p class='characteristics'>Kitchen</p>
                       </li>`
                           : ''
@@ -50,7 +50,7 @@ export function camperTemplate(camper) {
                         camper.AC
                           ? `
                       <li class='characteristics-item'>
-                          <img src='./src/img/wind.svg' alt="AC" />
+                          <img src='./img/wind.svg' alt="AC" />
                           <p class='characteristics'>AC</p>
                       </li>`
                           : ''
@@ -60,7 +60,7 @@ export function camperTemplate(camper) {
                         camper.bathroom
                           ? `
                       <li class='characteristics-item'>
-                          <img src='./src/img/bi_droplet.svg' alt="droplet" />
+                          <img src='./img/bi_droplet.svg' alt="droplet" />
                           <p class='characteristics'>Bathroom</p>
                       </li>`
                           : ''
@@ -70,7 +70,7 @@ export function camperTemplate(camper) {
                         camper.radio
                           ? `
                       <li class='characteristics-item'>
-                          <img src='./src/img/ui-radios.svg' alt="radio" />
+                          <img src='./img/ui-radios.svg' alt="radio" />
                           <p class='characteristics'>Radio</p>
                       </li>`
                           : ''
@@ -79,7 +79,7 @@ export function camperTemplate(camper) {
                          camper.TV
                            ? `
                       <li class='characteristics-item'>
-                          <img src='./src/img/tv.svg' alt="tv" />
+                          <img src='./img/tv.svg' alt="tv" />
                           <p class='characteristics'>TV</p>
                       </li>`
                            : ''
