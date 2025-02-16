@@ -1,4 +1,4 @@
-import { camperTemplate } from './templates.js';
+import { camperTemplate } from './camper-template.js';
 
 const resultRef = document.querySelector('.result');
 const loadMore = document.querySelector('.load-more');

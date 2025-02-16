@@ -1,0 +1,56 @@
+.section-reviews {
+  display: flex;
+  gap: 40px;
+}
+.ava-reviews {
+  font-family: 'Inter SemiBold', sans-serif;
+  color: transparent;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: #f2f4f7;
+  overflow: hidden;
+  padding: 14px 21px;
+}
+
+.ava-reviews::first-letter {
+  display: inline;
+  color: #e44848;
+}
+.info-reviews {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.comment-reviews {
+  font-family: 'inter Regular', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+}
+.rating-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.name-reviews {
+  font-family: 'Inter Medium', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+  padding: 0;
+  margin: 0;
+}
+.reviews-list {
+  width: 631px;
+}
+.reviews-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}

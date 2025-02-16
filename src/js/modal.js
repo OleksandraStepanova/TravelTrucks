@@ -1,5 +1,7 @@
 import { getCampersById } from './api.js';
 import { modalTemplate } from './modal-template.js';
+import { featuresTemplate } from './features-template.js';
+import { reviewsTemplate } from './reviews-template.js';
 
 export async function openModal(camperId) {
   try {
@@ -15,11 +17,8 @@ export async function openModal(camperId) {
       return;
     }
 
-    modalContent.innerHTML = modalTemplate(camper);
+    modalContent.innerHTML = await modalTemplate(camper);
     document.querySelector('.modal').classList.add('open');
-
-    // sessionStorage.setItem('openModal', camperId);
-    // window.history.pushState({}, '', `/catalog.html/${camperId}`);
 
     addNavigationHandlers();
   } catch (error) {
@@ -29,8 +28,6 @@ export async function openModal(camperId) {
 
 export function closeModal() {
   document.querySelector('.modal').classList.remove('open');
-  // window.history.pushState({}, '', '/catalog.html');
-  // sessionStorage.removeItem('openModal');
 }
 
 document.addEventListener('click', function (event) {
@@ -42,10 +39,10 @@ document.addEventListener('click', function (event) {
   }
 });
 
-function renderPage(page, camperId) {
+async function renderPage(page, camperId) {
   const content = {
-    features: `<h1>Features Page</h1><p>Features of camper ID: ${camperId}</p>`,
-    reviews: `<h1>Reviews Page</h1><p>Reviews for camper ID: ${camperId}</p>`,
+    features: await featuresTemplate(camperId),
+    reviews: await reviewsTemplate(camperId),
   };
 
   const outlet = document.getElementById('outlet');
@@ -63,12 +60,12 @@ function renderPage(page, camperId) {
   }
 }
 
-// function addNavigationHandlers() {
-//   document.querySelectorAll('.nav-link').forEach(link => {
-//     link.addEventListener('click', function (event) {
-//       event.preventDefault();
-//       const camperId = event.target.dataset.id;
-//       renderPage(event.target.dataset.page, camperId);
-//     });
-//   });
-// }
+function addNavigationHandlers() {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      const camperId = event.target.dataset.id;
+      renderPage(event.target.dataset.page, camperId);
+    });
+  });
+}

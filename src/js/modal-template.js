@@ -1,4 +1,7 @@
-export function modalTemplate(camper) {
+import { featuresTemplate } from './features-template.js';
+
+export async function modalTemplate(camper) {
+  const features = await featuresTemplate(camper.id);
   return `
     <section class='camp'>
       <h2 class='title-camp'>${camper.name}</h2>
@@ -43,7 +46,7 @@ export function modalTemplate(camper) {
         }">Reviews</a>
       </nav>
       <div id="outlet">
-          <h1>Features Page</h1><p>Features of camper ID: ${camper.id}</p>
+          ${features}
       </div>
       <img class='close-modal' src="close.svg" alt="close" width='22px' />
     </section>
