@@ -10,7 +10,7 @@ export function renderCampers(arr, pageSize) {
     const camperId = button.dataset.id;
     if (likedCampers[camperId]) {
       button.classList.add('liked');
-      button.querySelector('img').src = './src/img/red-heart.svg';
+      button.querySelector('img').src = 'red-heart.svg';
     }
   });
 }
