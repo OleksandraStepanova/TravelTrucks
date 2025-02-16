@@ -43,7 +43,7 @@ document.addEventListener('click', function (event) {
 
 async function renderPage(page, camperId) {
   const content = {
-    features: await featuresTemplate(camperId),
+    // features: await featuresTemplate(camperId),
     reviews: await reviewsTemplate(camperId),
   };
 
