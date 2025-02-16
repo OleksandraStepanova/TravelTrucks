@@ -71,10 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedCamperId = sessionStorage.getItem('openModal');
 
   if (camperId) {
-    console.log(camperId);
     openModal(camperId);
   } else if (savedCamperId) {
-    console.log(camperId);
     openModal(savedCamperId);
   }
 });
