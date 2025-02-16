@@ -67,12 +67,12 @@
       <h2 class='title-camp'>${e.name}</h2>
       <div class='wrapper-camp'>
           <div class='reviews-camp'>
-              <img src='../img/star.svg' alt="star" />
+              <img src='./img/star.svg' alt="star" />
               <p>${e.rating}</p>
               ${e.reviews?`<p>(${e.reviews.length} Reviews)</p>`:""}
           </div>
           <div class='location-camp'>
-              <img src='../img/map.svg' alt="map" />
+              <img src='./img/map.svg' alt="map" />
               <p>${e.location}</p>
           </div>
       </div>
@@ -94,7 +94,7 @@
       <div id="outlet">
           <h1>Features Page</h1><p>Features of camper ID: ${e.id}</p>
       </div>
-      <img class='close-modal' src="../img/close.svg" alt="close" width='22px' />
+      <img class='close-modal' src="./img/close.svg" alt="close" width='22px' />
     </section>
     `}async function I(e){try{const t=await C(e);if(!t){console.error("Camper not found");return}const i=document.querySelector(".modal-content");if(!i){console.error("Modal content not found in DOM");return}i.innerHTML=M(t),document.querySelector(".modal").classList.add("open"),addNavigationHandlers()}catch(t){console.error("Error fetching camper data:",t)}}function T(){document.querySelector(".modal").classList.remove("open")}document.addEventListener("click",function(e){(e.target.classList.contains("close-modal")||e.target.classList.contains("modal"))&&T()});document.addEventListener("click",function(e){if(e.target.closest(".btn-like")){const t=e.target.closest(".btn-like"),i=t.dataset.id;t.classList.toggle("liked");const r=t.querySelector("img"),s=t.classList.contains("liked");r.src=s?"./img/red-heart.svg":"./img/heart.svg";const a=JSON.parse(localStorage.getItem("likedCampers"))||{};a[i]=s,localStorage.setItem("likedCampers",JSON.stringify(a))}});const O=document.querySelector(".result"),A=document.querySelector(".loader"),p=document.querySelector(".load-more"),F=document.querySelector("#filtersForm");A.style.display="none";p.style.display="none";let l=1;const n=4;let m=[],o=[];async function N(){try{m=await k(),o=m,y(o,n),l=1,$(l,n,o)}catch{O.innerHTML="<p>Not found</p>",p.classList.add("no-active")}}function R(){l++;const e=(l-1)*n,t=l*n;b(o,e,t),$(l,n,o)}F.addEventListener("submit",function(e){e.preventDefault(),o=E(m),y(o,n)});document.querySelectorAll(".container-filters").forEach(e=>{e.addEventListener("click",function(){e.classList.toggle("active-filter")})});document.addEventListener("click",function(e){const t=e.target.closest(".campers-link");if(!t)return;const i=t.dataset.id;I(i)});p.addEventListener("click",R);window.onload=N;
 //# sourceMappingURL=catalog.js.map
