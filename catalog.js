@@ -6,7 +6,7 @@
                       <div class="price-campers">
                           <p>&euro;${e.price},00</p>
                           <button type="button" class="btn-like" data-id="${e.id}">
-                              <img class='img-like' src="../img/heart.svg" alt="like" />
+                              <img class='img-like' src="/img/heart.svg" alt="like" />
                           </button>                                                      
                       </div>
                   </div>
