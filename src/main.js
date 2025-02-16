@@ -63,5 +63,21 @@ document.addEventListener('click', function (event) {
   openModal(camperId);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const isCatalogPage = pathParts[0] === 'catalog';
+  const camperId = isCatalogPage && pathParts[1] ? pathParts[1] : null;
+
+  const savedCamperId = sessionStorage.getItem('openModal');
+
+  if (camperId) {
+    console.log(camperId);
+    openModal(camperId);
+  } else if (savedCamperId) {
+    console.log(camperId);
+    openModal(savedCamperId);
+  }
+});
+
 loadMore.addEventListener('click', loadMoreCampers);
 window.onload = createCatalog;

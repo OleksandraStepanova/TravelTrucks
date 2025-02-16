@@ -25,6 +25,14 @@
 .btn-like {
   outline: 0px solid #fff;
   background: none;
+  width: 26px;
+  height: 24px;
+  padding: 0;
+}
+
+.btn-like svg {
+  width: 26px;
+  height: 24px;
 }
 
 .btn-like:focus,
