@@ -4,6 +4,7 @@ import { featuresTemplate } from './features-template.js';
 import { reviewsTemplate } from './reviews-template.js';
 
 export async function openModal(camperId) {
+  document.body.classList.add('no-scroll');
   try {
     const camper = await getCampersById(camperId);
     if (!camper) {
@@ -27,6 +28,7 @@ export async function openModal(camperId) {
 }
 
 export function closeModal() {
+  document.body.classList.remove('no-scroll');
   document.querySelector('.modal').classList.remove('open');
 }
 

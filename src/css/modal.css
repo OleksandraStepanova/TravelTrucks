@@ -138,3 +138,6 @@
   display: flex;
   justify-content: start;
 }
+.no-scroll {
+  overflow: hidden;
+}
