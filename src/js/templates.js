@@ -11,7 +11,7 @@ export function camperTemplate(camper) {
                           <button type="button" class="btn-like" data-id="${
                             camper.id
                           }">
-                              <img class='img-like' src="./img/heart.svg" alt="like" />
+                              <img class='img-like' src="../img/heart.svg" alt="like" />
                           </button>                                                      
                       </div>
                   </div>
