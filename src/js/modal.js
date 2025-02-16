@@ -19,7 +19,7 @@ export async function openModal(camperId) {
     document.querySelector('.modal').classList.add('open');
 
     sessionStorage.setItem('openModal', camperId);
-    window.history.pushState({}, '', `/catalog.html/${camperId}`);
+    // window.history.pushState({}, '', `/catalog.html/${camperId}`);
 
     addNavigationHandlers();
   } catch (error) {
@@ -29,7 +29,7 @@ export async function openModal(camperId) {
 
 export function closeModal() {
   document.querySelector('.modal').classList.remove('open');
-  window.history.pushState({}, '', '/catalog.html');
+  // window.history.pushState({}, '', '/catalog.html');
   sessionStorage.removeItem('openModal');
 }
 

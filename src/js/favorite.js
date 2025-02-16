@@ -7,7 +7,7 @@ document.addEventListener('click', function (event) {
     const img = button.querySelector('img');
     const isLiked = button.classList.contains('liked');
 
-    img.src = isLiked ? './src/img/red-heart.svg' : './src/img/heart.svg';
+    img.src = isLiked ? './img/red-heart.svg' : './img/heart.svg';
 
     const likedCampers = JSON.parse(localStorage.getItem('likedCampers')) || {};
     likedCampers[camperId] = isLiked;

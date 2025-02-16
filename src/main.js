@@ -59,7 +59,7 @@ document.addEventListener('click', function (event) {
   const showMoreButton = event.target.closest('.campers-link');
   if (!showMoreButton) return;
   const camperId = showMoreButton.dataset.id;
-  window.history.pushState({}, '', `/catalog.html/${camperId}`);
+  // window.history.pushState({}, '', `/catalog.html/${camperId}`);
   openModal(camperId);
 });
 
