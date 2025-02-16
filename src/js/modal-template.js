@@ -4,7 +4,7 @@ export function modalTemplate(camper) {
       <h2 class='title-camp'>${camper.name}</h2>
       <div class='wrapper-camp'>
           <div class='reviews-camp'>
-              <img src='star.svg' alt="star" />
+              <img src='/assets/star.svg' alt="star" />
               <p>${camper.rating}</p>
               ${
                 camper.reviews
@@ -13,7 +13,7 @@ export function modalTemplate(camper) {
               }
           </div>
           <div class='location-camp'>
-              <img src='map.svg' alt="map" />
+              <img src='/assets/map.svg' alt="map" />
               <p>${camper.location}</p>
           </div>
       </div>
@@ -45,7 +45,7 @@ export function modalTemplate(camper) {
       <div id="outlet">
           <h1>Features Page</h1><p>Features of camper ID: ${camper.id}</p>
       </div>
-      <img class='close-modal' src="close.svg" alt="close" width='22px' />
+      <img class='close-modal' src="/assets/close.svg" alt="close" width='22px' />
     </section>
     `;
 }
