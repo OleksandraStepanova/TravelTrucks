@@ -1,7 +1,9 @@
 import { getCampersById } from './api.js';
+import { formTemplate } from './form-template.js';
 
 export async function reviewsTemplate(camperId) {
   const camper = await getCampersById(camperId);
+  const form = formTemplate();
 
   return ` <section class='section-reviews'>
             ${
@@ -33,6 +35,6 @@ export async function reviewsTemplate(camperId) {
             </ul>`
                 : ''
             }
-          
+          ${form}
         </section>`;
 }

@@ -1,0 +1,95 @@
+.form-container {
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 44px;
+  width: 641px;
+  height: 588px;
+}
+
+.title-form {
+  font-family: 'Inter SemiBold', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+  margin-bottom: 8px;
+}
+.text-form {
+  font-family: 'Inter Regular', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c717b;
+  margin-bottom: 24px;
+}
+.form-bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 527px;
+}
+
+.input-bookings {
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  padding: 18px 18px 18px 18px;
+  width: 527px;
+  height: 60px;
+  border-bottom: none;
+  border: none;
+  overflow: visible;
+  box-sizing: border-box;
+  display: flex;
+  white-space: nowrap;
+}
+.input-bookings:focus {
+  outline-color: transparent;
+}
+.button-bookings {
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 173px;
+  height: 56px;
+  background-color: #e44848;
+  color: white;
+  margin-top: 10px;
+}
+
+.button-bookings:hover {
+  background-color: #d84343;
+}
+.button-bookings:focus {
+  outline-color: transparent;
+}
+
+.comment-bookings {
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  padding: 18px 18px 18px 18px;
+  width: 527px;
+  height: 118px;
+  border-bottom: none;
+  border: none;
+  word-break: break-all;
+  resize: none;
+}
+.message-bookings {
+  height: 9px;
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter Regular', sans-serif;
+  font-size: 16px;
+  color: #d84343;
+}
+.input-bookings {
+  width: 527px;
+}
+.input[type='date'] {
+  color: #2b2c2c;
+}
+.input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}

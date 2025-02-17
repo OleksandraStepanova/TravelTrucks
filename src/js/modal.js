@@ -2,6 +2,7 @@ import { getCampersById } from './api.js';
 import { modalTemplate } from './modal-template.js';
 import { featuresTemplate } from './features-template.js';
 import { reviewsTemplate } from './reviews-template.js';
+import iziToast from 'izitoast';
 
 export async function openModal(camperId) {
   document.body.classList.add('no-scroll');
@@ -22,6 +23,18 @@ export async function openModal(camperId) {
     document.querySelector('.modal').classList.add('open');
 
     addNavigationHandlers();
+    const bookingForm = document.querySelector('#bookingForm');
+    bookingForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      iziToast.show({
+        message:
+          'Success! We have received your booking request. We will contact you shortly.',
+        timeout: 5000,
+        position: 'topRight',
+        color: 'green',
+      });
+      bookingForm.reset();
+    });
   } catch (error) {
     console.error('Error fetching camper data:', error);
   }
@@ -49,7 +62,7 @@ async function renderPage(page, camperId) {
 
   const outlet = document.getElementById('outlet');
   if (outlet) {
-    outlet.innerHTML = content[page] || '<h1>Catalog</h1>';
+    outlet.innerHTML = content[page] || '<p>Page not found</p>';
   }
 
   document
