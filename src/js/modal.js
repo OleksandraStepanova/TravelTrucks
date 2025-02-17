@@ -33,10 +33,20 @@ export async function openModal(camperId) {
         position: 'topRight',
         color: 'green',
       });
+      const formData = new FormData(bookingForm);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const date = formData.get('bookingDate');
+      console.log('Booking request:', { name, email, date, camperId });
       bookingForm.reset();
     });
   } catch (error) {
-    console.error('Error fetching camper data:', error);
+    iziToast.show({
+      message: 'Error fetching camper data. Please try again later.',
+      timeout: 5000,
+      position: 'topRight',
+      color: 'red',
+    });
   }
 }
 
