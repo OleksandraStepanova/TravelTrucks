@@ -23,7 +23,9 @@ let filteredCampers = [];
 
 async function createCatalog() {
   try {
+    loader.style.display = 'block';
     const data = await getCampers();
+    loader.style.display = 'none';
     allCampers = data;
     filteredCampers = allCampers;
     renderCampers(filteredCampers, pageSize);

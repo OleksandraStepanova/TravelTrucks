@@ -9,13 +9,23 @@ export async function openModal(camperId) {
   try {
     const camper = await getCampersById(camperId);
     if (!camper) {
-      console.error('Camper not found');
+      iziToast.show({
+        message: 'Camper not found',
+        timeout: 5000,
+        position: 'topRight',
+        color: 'red',
+      });
       return;
     }
 
     const modalContent = document.querySelector('.modal-content');
     if (!modalContent) {
-      console.error('Modal content not found in DOM');
+      iziToast.show({
+        message: 'Error loading modal content. Please try again later.',
+        timeout: 5000,
+        position: 'topRight',
+        color: 'red',
+      });
       return;
     }
 
