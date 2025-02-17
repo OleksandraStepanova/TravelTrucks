@@ -93,3 +93,29 @@
   cursor: pointer;
   filter: invert(0.5);
 }
+.flatpickr-calendar {
+  border: 1px solid #475467 !important;
+  border-radius: 12px !important;
+  color: #101828 !important;
+}
+.flatpickr-weekdays {
+  border-bottom: 1px solid #475467 !important;
+  color: #475467 !important;
+}
+
+.flatpickr-calendar.arrowTop::before,
+.flatpickr-calendar.arrowTop::after {
+  border-bottom-color: #474747 !important;
+  border-width: 10px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  color: #474747 !important;
+}
+
+.flatpickr-month {
+  color: #101828 !important;
+}
+.flatpickr-day.selected {
+  background-color: #474747 !important;
+  color: #ffffff !important;
+}

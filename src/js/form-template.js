@@ -1,9 +1,6 @@
-// import datepicker from 'js-datepicker';
 import 'izitoast/dist/css/iziToast.min.css';
 
 export function formTemplate() {
-  //   const picker = datepicker('.some-input', { showAllDates: true });
-
   return `
    <div class="form-container">
         <h2 class='title-form'>Book your campervan now</h2>
@@ -16,7 +13,7 @@ export function formTemplate() {
                 <input class='input-bookings' type="email" id="email" name="email" required placeholder="Email*" />
              </div>
              <div>
-                <input class='input-bookings' type="date" id="bookingDate" name="bookingDate" required />
+                <input class='input-bookings' type="text" id="datepicker" placeholder="Date*" name="bookingDate" required/>
             </div>
             <div>    
                 <textarea class='comment-bookings' id="comment" name="comment" maxlength="250" placeholder="Comment"></textarea>

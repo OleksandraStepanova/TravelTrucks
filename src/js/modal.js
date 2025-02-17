@@ -2,6 +2,8 @@ import { getCampersById } from './api.js';
 import { modalTemplate } from './modal-template.js';
 import { featuresTemplate } from './features-template.js';
 import { reviewsTemplate } from './reviews-template.js';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 
 export async function openModal(camperId) {
@@ -33,6 +35,15 @@ export async function openModal(camperId) {
     document.querySelector('.modal').classList.add('open');
 
     addNavigationHandlers();
+
+    setTimeout(() => {
+      const dateInput = document.querySelector('#datepicker');
+
+      if (dateInput) {
+        flatpickr(dateInput, { dateFormat: 'Y-m-d' });
+      }
+    }, 100);
+
     const bookingForm = document.querySelector('#bookingForm');
     bookingForm.addEventListener('submit', function (event) {
       event.preventDefault();
